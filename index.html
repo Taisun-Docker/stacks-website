@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Central repository for community supported Docker compose templates for Taisun.io">
+    <meta name="author" content="Ryan Kuba">
+    <title>Taisun Stacks</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-brand" style="cursor:pointer;" onclick="rendermain()">Taisun Stacks</div>
+      <div class="collapse navbar-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <div id="userinfo">
+              <button style="cursor:pointer;" class="btn btn-outline-primary my-2 my-sm-0" onclick="location.href='https://github.com/login/oauth/authorize?client_id=95c0745e394cf6f946b0';">Login <i class="fa fa-github"></i></button>
+              <button style="cursor:pointer;" class="btn btn-outline-success my-2 my-sm-0" onclick="window.open('https://www.taisun.io/', '_blank');">Get Taisun <i class="fa fa-external-link"></i></button>
+            </div>
+          </li>
+        </ul>
+        <button data-toggle="modal" data-target="#modal" style="margin-right:10px;display:none;" id="addstack" class="addstack btn btn-outline-primary my-2 my-sm-0"> Add Stack <i class="fa fa-upload"></i></button>
+        <form class="form-inline my-2 my-md-0" onsubmit="return false;">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" id="stacksearch">
+          <button style="cursor:pointer;" onclick="stacksearch(1)" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </nav>
+    <!-- /.Navigation -->
+    <!-- Main Page -->
+    <div class="card mb-3">
+      <div class="card-body" id="taisunstacks" style="overflow-x:auto">
+      <center><i class="fa fa-refresh fa-spin" style="font-size:36px"></i><br><h2>Fetching available stacks from Taisun.io</h2></center>
+      </div>
+    </div>
+    <!-- /.Main Page -->
+    <!--Taisun Modal-->
+   <div id="modal" class="modal fade" tabindex="-1" role="dialog" style="overflow-y:scroll;">
+      <div class="modal-dialog" style="max-width:80%!important;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"><div id="modaltitle"></div></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body" style="overflow-x:auto">
+            <div id="modalloading"><i class="fa fa-refresh fa-spin" style="font-size:36px"></i></div>
+            <div id="modalbody"></div>
+            <div id="modalconsole" style="white-space: pre-wrap; font-family:monospace;"></div>
+          </div>
+          <div class="modal-footer" id="modalfooter"></div>
+        </div>
+      </div>
+    </div>
+    <!--/.Taisun Modal -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/js/jquery-3.1.1.min.js"></script>
+    <script src="vendor/tether/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/js-yaml/js/js-yaml.js"></script>
+    <script src="vendor/showdown/showdown.min.js"></script>
+    <script src="vendor/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <!-- Custom scripts for Taisun -->
+    <script src="js/stacks.js"></script>
+  </body>
+</html>
