@@ -63,6 +63,7 @@ function renderstack(stackguid){
   $('#taisunstacks').empty();
   var file = '/templates/' + stackguid;
   var fullurl = 'https://stacks.taisun.io' + file;
+  var iconurl = 'https://stacks.taisun.io/icons/' + stackguid.replace(/\.[^\.]+$/, '.png');
   $.get(file).done(function (data) {
     var template = jsyaml.load(data);
     var markdown = template.description;
@@ -70,8 +71,8 @@ function renderstack(stackguid){
     $('#taisunstacks').append('\
       <div class="card mb-3">\
         <div class="card-header">\
-          <i class="fa fa-link"></i>\
-            <a href="' + fullurl +'" target="_blank">' + fullurl + '</a>\
+          <img src="' + iconurl + '">\
+          <a style="font-size:2vw" href="' + fullurl +'" target="_blank">' + fullurl + '</a>\
         </div>\
         <div class="card-body">\
           ' + converter.makeHtml(markdown) + '\
